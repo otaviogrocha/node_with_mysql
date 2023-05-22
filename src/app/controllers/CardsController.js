@@ -4,33 +4,78 @@ const cards = require("../../database/cards");
 
 class CardsController {
   async show(request, response) {
-    /**
-     * @todo get an specific card
-     */
+
+    const { id } = request.params
+
+    try {
+      const result = await cards.findOne(id)
+      return response.json(result);
+    } catch (error) {
+      return response.json({ error: "Erro ao listar card ID!" })
+    }
   }
 
   async list(request, response) {
-    /**
-     * @todo list all cards
-     */
+    try {
+      const card = await cards.find();
+      response.json(card);
+    }
+    catch (error) {
+      response.json({ erro: "Erro ao listar cards" });
+    }
   }
 
   async create(request, response) {
-    /**
-     * @todo create a card
-     */
+    const { name, type, desc, atk, def } = request.body;
+    const card = {
+      name,
+      type,
+      desc,
+      atk,
+      def,
+    }
+
+    try {
+      const result = await cards.create(card)
+      return response.json(result);
+    }
+    catch (error) {
+      return response.json({ error: "Erro ao criar carddd" })
+    }
   }
 
   async update(request, response) {
-    /**
-     * @todo update an specific card
-     */
+    const { id } = request.params;
+    const { name, type, desc, atk, def } = request.body;
+
+    const updatedData = {
+      name,
+      type,
+      desc,
+      atk,
+      def
+    }
+
+    try {
+      const result = await cards.update(id, updatedData)
+      return response.json(result)
+    }
+    catch (error) {
+      return response.json({ error: "Erro ao atualizar a página " })
+    }
   }
 
   async delete(request, response) {
-    /**
-     * @todo delete an specific card
-     */
+
+    const { id } = request.params;
+
+    try {
+      const result = await cards.remove(id)
+      return response.json(result)
+    }
+    catch (error) {
+      return response.json({ error: "Erro ao deletar card" })
+    }
   }
 }
 module.exports = new CardsController();
