@@ -1,10 +1,12 @@
+const dotenv = require('dotenv')
+dotenv.config();
+
 const config = {
   db: {
-    /* your database credentials */
-    host: "127.0.0.1",
-    user: "root",
-    password: "sqlMonde12345.",
-    database: "monsters",
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
   },
 };
 module.exports = config;
