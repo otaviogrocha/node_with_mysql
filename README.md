@@ -1,4 +1,14 @@
-# API em NODE.js com requisição ao banco de dados MySQL
+# API em NODE.js e MySQL
+
+Criação de uma API e seus endpoints com o Node com requisição ao banco de dados MySQL utilizando as dependencias: cors, express, dotenv e mysql12.
+
+Projeto separado entre as funcionalidades do app, controllers, credenciais de acesso,e do banco de dados.
+
+
+### app
+### config
+### database
+### server
 
 - server.js: define a porta que será hospedada e escuta(listen) quando o server é iniciado retornando a PORTA e o console.log();
 - routes.js: modulo router extraido do pacote 'express' para fazer os protocolos HTTP de acordos com os endpoints das rotas /cards e com os métodos da classe CardsController no parâmetro de cada requisição.
@@ -21,4 +31,6 @@
     - update(): desestrutura os parâmetros da consulta do body e do params do request e cria o objeto updateData passando os atributos e faz a conexão através do import de cards.update passando como paramêtro o id e o updatedData retornando o card atualizado em JSON.
     - delete(): desestrutura o id do request e faz a conexão com o import de cards.remove passando o id como parâmetro e retornando o card em JSON.
 
-
+## Projeto realizado durante a Oficina de desenvolvimento back-end com Node.js e MySQL da PUCMINAS
+- Ministrada por @caiocampos-hotmart
+- Realizada em 18/05/2023
