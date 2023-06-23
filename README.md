@@ -1,4 +1,4 @@
-# node_with_mysql
+# API em NODE.js com requisição ao banco de dados MySQL
 
 - server.js: define a porta que será hospedada e escuta(listen) quando o server é iniciado retornando a PORTA e o console.log();
 - routes.js: modulo router extraido do pacote 'express' para fazer os protocolos HTTP de acordos com os endpoints das rotas /cards e com os métodos da classe CardsController no parâmetro de cada requisição.
