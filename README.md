@@ -8,13 +8,13 @@ Projeto separado entre as funcionalidades do app, controllers, credenciais de ac
 ### app
 - server.js: define a porta que será hospedada;
 - routes.js: cria as rotas do servidor utilizando o modulo {router} do 'express' para fazer os protocolos HTTP de acordos com os endpoints e os métodos da classe CardsController para cada requisição.
-- app.js: contém a classe "App" com um construtor para o servidor que define as rotas da API de acordo com as routes.js.
+- app.js: contém a classe "App" com um construtor para o servidor que define as rotas da API de acordo com as routes.js e habilita o CORS.
 
 ### config
-- mysql.js: contém as credenciais para o acesso ao banco de dados para realizar a consulta. Utiliza o módulo dotenv para ocultar as credenciais do repositório definidas em um arquivo .env;
+- mysql.js: contém as credenciais do banco de dados. Utiliza o módulo dotenv para ocultar as credenciais no controle de versionamento.
 ### database
-- helper.js: Função auxiliar para tratar erros verificando se a consulta retorna um falsy, caso for falsy retorna um array vazio senão retorna o valor original.
-- db.js: importa modulos do SQL responsáveis por fazer a consulta através da função assíncrona query, que recebe como parâmetro a consulta em SQL e/ou os parâmetros dessa consulta específica e conecta com o banco de dados retornando os resultados dessa consulta num array "results".
+- helper.js: tratamento de erro que verifica e retorna um array vazio caso o valor for um falsy senão retorna o valor original.
+- db.js: importa modulos do SQL responsáveis por fazer a consulta através da que recebe como parâmetro a consulta em SQL e/ou os parâmetros dessa consulta específica e conecta com o banco de dados retornando os resultados dessa consulta num array "results".
 - cards.js: utiliza dos métodos "query" de db.js e a função auxiliar "emptyRows" do helper.js para executar as consultas para cada funcionalidade do método HTTP selecionado. Contendo as funções assíncronas:<br><br>
     - find(): define uma consulta para buscar todos os cards no database e faz a query com essa consulta, depois verifica e trata o resultado de cada linha e retorna o objeto "data".<br>
     - findOne(): recebe o id do card a ser buscado no parametro, define a consulta a ser feita com a condição e na query é passado o paramêtro da consulta [id].<br>
