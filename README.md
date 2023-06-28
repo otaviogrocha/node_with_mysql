@@ -14,8 +14,7 @@ Projeto separado entre as funcionalidades do app, controllers, credenciais de ac
 ### database
 - Responsáveis por fazer a conexão com o banco de dados que recebe a consulta em SQL e/ou os parâmetros dessa consulta para retornar os resultados num array.
 - Faz o tratamento de erro que verifica se o array é um falsy para retornar um array vazio e caso contrário retorna o valor original.
-- Onde as querys são definidas para o controller, de acordo com os parâmetros das rotas.<br><br>
-
+- Onde as querys são definidas para o controller, de acordo com os parâmetros das rotas.<br>
 ### controller
 - Por fim, o CardsControllers.js: A classe que vai fazer a requisição e criar os métodos para a requisição de cada rota HTTP.<br>
 - Nos métodos, o body da requisição é recuperado através da desestruturação para adicionar/modificar/remover algum atributo do card ou card em si.
